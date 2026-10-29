@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SYNTHMM — psychedelic dual synthesizer</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/15.1.22/Tone.js"></script>
+    <script defer src="script.js"></script>
+  </head>
+  <body>
+    <main class="instrument" aria-label="SYNTHMM psychedelic dual synthesizer">
+      <div class="top-note">SPECTRAL SYNTH</div>
+      <section class="voice voice-one" data-voice="1" aria-label="Осциллятор 1">
+        <img class="eye-art" src="assets/eye1.svg" alt="" />
+        <h1 class="oscillator-title title-one">OSCILLATOR 1</h1>
+        <div class="voice-transport">
+          <button class="transport start" data-action="start">START</button>
+          <button class="transport mute" data-action="mute">MUTE</button>
+          <button class="transport stop" data-action="stop">STOP</button>
+          <button class="transport reset" data-action="reset">RESET</button>
+        </div>
+
+        <div class="volume-art">
+          <img class="volume-pointer" src="assets/volume1.svg" alt="" /><label
+            for="volume-1"
+            >Volume</label
+          >
+        </div>
+        <div class="slider-wrap volume-slider">
+          <img class="slider-line" src="assets/volumeline.svg" alt="" /><input
+            id="volume-1"
+            type="range"
+            min="0"
+            max="100"
+            value="70"
+            aria-label="Громкость осциллятора 1"
+          /><output id="volume-out-1">70%</output>
+        </div>
+
+        <div
+          class="wave-selectors"
+          role="group"
+          aria-label="Форма волны первого осциллятора"
+        >
+          <button
+            class="wave-shape saw selected"
+            data-wave="sawtooth"
+            aria-label="Пилообразная волна"
+          >
+            <img src="assets/saw.svg" alt="" />
+          </button>
+          <button
+            class="wave-shape square"
+            data-wave="square"
+            aria-label="Прямоугольная волна"
+          >
+            <img src="assets/square.svg" alt="" />
+          </button>
+          <button
+            class="wave-shape triangle"
+            data-wave="triangle"
+            aria-label="Треугольная волна"
+          >
+            <img src="assets/triangle.svg" alt="" />
+          </button>
+        </div>
+
+        <div class="slider-wrap attack-slider">
+          <label for="attack-1">Attack</label
+          ><img class="slider-line" src="assets/attackline.svg" alt="" /><input
+            id="attack-1"
+            type="range"
+            min="0"
+            max="100"
+            value="20"
+            aria-label="Attack осциллятора 1"
+          /><output id="attack-out-1">20%</output>
+        </div>
+        <div class="slider-wrap release-slider">
+          <label for="release-1">Release</label
+          ><img class="slider-line" src="assets/releaseline.svg" alt="" /><input
+            id="release-1"
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            aria-label="Release осциллятора 1"
+          /><output id="release-out-1">50%</output>
+        </div>
+
+        <div class="fx-row">
+          <div class="fx-control">
+            <button
+              class="fx-knob"
+              id="distortion-1"
+              data-fx="distortion"
+              aria-label="Интенсивность дисторшна первого осциллятора"
+            >
+              <img
+                class="knob-base"
+                src="assets/distortion-base.svg"
+                alt=""
+              /><img
+                class="knob-pointer"
+                src="assets/distortion-pointer.svg"
+                alt=""
+              /></button
+            ><label for="distortion-1">Distortion</label
+            ><output id="distortion-out-1">25%</output>
+          </div>
+          <div class="fx-control">
+            <button
+              class="fx-knob"
+              id="reverb-1"
+              data-fx="reverb"
+              aria-label="Интенсивность реверберации первого осциллятора"
+            >
+              <img class="knob-base" src="assets/reverb-base.svg" alt="" /><img
+                class="knob-pointer"
+                src="assets/reverb-pointer.svg"
+                alt=""
+              /></button
+            ><label for="reverb-1">Reverb</label
+            ><output id="reverb-out-1">30%</output>
+          </div>
+        </div>
+        <div class="sequence-label">
+          SEQUENCE A <span class="live-state" id="state-1">● READY</span>
+        </div>
+      </section>
+
+      <img
+        class="center-mouth"
+        src="assets/mouth.svg"
+        alt=""
+        aria-hidden="true"
+      />
+
+      <section class="voice voice-two" data-voice="2" aria-label="Осциллятор 2">
+        <img class="eye-art" src="assets/eye2.svg" alt="" />
+        <h2 class="oscillator-title title-two">OSCILLATOR 2</h2>
+        <div class="voice-transport">
+          <button class="transport start" data-action="start">START</button>
+          <button class="transport mute" data-action="mute">MUTE</button>
+          <button class="transport stop" data-action="stop">STOP</button>
+          <button class="transport reset" data-action="reset">RESET</button>
+        </div>
+
+        <div class="volume-art">
+          <img class="volume-pointer" src="assets/volume2.svg" alt="" /><label
+            for="volume-2"
+            >Volume</label
+          >
+        </div>
+        <div class="slider-wrap volume-slider">
+          <img class="slider-line" src="assets/volumeline.svg" alt="" /><input
+            id="volume-2"
+            type="range"
+            min="0"
+            max="100"
+            value="70"
+            aria-label="Громкость осциллятора 2"
+          /><output id="volume-out-2">70%</output>
+        </div>
+
+        <div
+          class="wave-selectors"
+          role="group"
+          aria-label="Форма волны второго осциллятора"
+        >
+          <button
+            class="wave-shape triangle"
+            data-wave="triangle"
+            aria-label="Треугольная волна"
+          >
+            <img src="assets/triangle.svg" alt="" />
+          </button>
+          <button
+            class="wave-shape square"
+            data-wave="square"
+            aria-label="Прямоугольная волна"
+          >
+            <img src="assets/square.svg" alt="" />
+          </button>
+          <button
+            class="wave-shape saw selected"
+            data-wave="sawtooth"
+            aria-label="Пилообразная волна"
+          >
+            <img src="assets/saw.svg" alt="" />
+          </button>
+        </div>
+
+        <div class="slider-wrap attack-slider">
+          <label for="attack-2">Attack</label
+          ><img class="slider-line" src="assets/attackline.svg" alt="" /><input
+            id="attack-2"
+            type="range"
+            min="0"
+            max="100"
+            value="20"
+            aria-label="Attack осциллятора 2"
+          /><output id="attack-out-2">20%</output>
+        </div>
+        <div class="slider-wrap release-slider">
+          <label for="release-2">Release</label
+          ><img class="slider-line" src="assets/releaseline.svg" alt="" /><input
+            id="release-2"
+            type="range"
+            min="0"
+            max="100"
+            value="50"
+            aria-label="Release осциллятора 2"
+          /><output id="release-out-2">50%</output>
+        </div>
+
+        <div class="fx-row">
+          <div class="fx-control">
+            <button
+              class="fx-knob"
+              id="distortion-2"
+              data-fx="distortion"
+              aria-label="Интенсивность дисторшна второго осциллятора"
+            >
+              <img
+                class="knob-base"
+                src="assets/distortion-base.svg"
+                alt=""
+              /><img
+                class="knob-pointer"
+                src="assets/distortion-pointer.svg"
+                alt=""
+              /></button
+            ><label for="distortion-2">Distortion</label
+            ><output id="distortion-out-2">25%</output>
+          </div>
+          <div class="fx-control">
+            <button
+              class="fx-knob"
+              id="reverb-2"
+              data-fx="reverb"
+              aria-label="Интенсивность реверберации второго осциллятора"
+            >
+              <img class="knob-base" src="assets/reverb-base.svg" alt="" /><img
+                class="knob-pointer"
+                src="assets/reverb-pointer.svg"
+                alt=""
+              /></button
+            ><label for="reverb-2">Reverb</label
+            ><output id="reverb-out-2">30%</output>
+          </div>
+        </div>
+        <div class="sequence-label">
+          SEQUENCE B <span class="live-state" id="state-2">● READY</span>
+        </div>
+      </section>
+
+      <div class="tempo-control">
+        <label for="tempo">TEMPO</label><strong id="tempo-value">92</strong
+        ><input
+          id="tempo"
+          type="range"
+          min="60"
+          max="140"
+          value="92"
+          aria-label="Темп"
+        />
+      </div>
+      <button class="global-start" id="global-start">START BOTH ↗</button>
+      <button class="global-stop" id="global-stop">STOP BOTH ■</button>
+      <button class="reset-all" id="reset-all">RESET ALL ↺</button>
+      <footer class="bottom-bar">
+        <span>DESIGNED TO SOUND A LITTLE STRANGE.</span
+        ><span>DUAL SYNTH / V.02</span>
+      </footer>
+    </main>
+  </body>
+</html>
